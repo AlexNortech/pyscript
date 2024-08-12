@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma de Números con PyScript</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css">
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+    <h1>Suma de los primeros N números</h1>
+    
+    <label for="n">Ingresa un número:</label>
+    <input type="number" id="n" value="10">
+    <button id="calcular">Calcular Suma</button>
+    
+    <p id="resultado"></p>
+    
+    <py-script>
+        def calcular_suma(event):
+            n = int(Element("n").element.value)
+            suma = sum(range(1, n + 1))
+            Element("resultado").element.innerText = f"La suma de los primeros {n} números es: {suma}"
+        
+        # Asignar la función al botón
+        Element("calcular").element.onclick = calcular_suma
+    </py-script>
+</body>
+</html>
